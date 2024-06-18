@@ -229,8 +229,11 @@ export default function Home() {
                           {info.name}
                         </h1>
                         <div className="w-full flex items-center gap-2 justify-start flex-wrap">
-                          {info.category.map((c) => (
-                            <div className="px-2 py-1 text-[0.6rem] text-white bg-[#989898] rounded-lg">
+                          {info.category.map((c, cIndex) => (
+                            <div
+                              key={cIndex}
+                              className="px-2 py-1 text-[0.6rem] text-white bg-[#989898] rounded-lg"
+                            >
                               {c}
                             </div>
                           ))}
