@@ -1,3 +1,5 @@
+import { easeBackInOut } from "d3-ease";
+
 export const MainProductCategories = [
   {
     category: "Alianças",
@@ -308,3 +310,31 @@ export const Products = [
     release: false,
   },
 ];
+
+export const GeneralVisibleHiddenExitMotionVariants = {
+  hidden: {
+    opacity: 0.2,
+    scale: 0.95, // Scale down slightly
+    transition: {
+      duration: 0.5,
+      ease: easeBackInOut, // Use an easing function
+    },
+  },
+  visible: {
+    opacity: 1,
+    scale: 1, // Scale down slightly
+    transition: {
+      duration: 0.5,
+      ease: easeBackInOut, // Use an easing function
+    },
+  },
+  exit: {
+    opacity: 0,
+    scale: 1.05, // Scale down slightly
+
+    transition: {
+      duration: 0.01,
+      ease: easeBackInOut, // Use an easing function
+    },
+  },
+};

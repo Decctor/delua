@@ -1,3 +1,4 @@
+import SearchProducts from "@/components/SearchProducts";
 import { formatToMoney } from "@/lib/formatting";
 import { MainProductCategories, Products } from "@/utils/constants";
 import Image from "next/image";
@@ -18,12 +19,8 @@ export default function Home() {
             />
           </div>
           <div className="grow items-center justify-center hidden lg:flex">
-            <div className="group flex items-center p-3 w-[600px] border border-[#bcbbbb] group-focus-within:border-gray-100 rounded-md">
-              <input
-                placeholder="Pesquise aqui o nome do item que deseja..."
-                className="outline-none bg-transparent text-white text-xs grow placeholder:text-white"
-              />
-              <FaSearch color="#fff" />
+            <div className="w-[600px]">
+              <SearchProducts />
             </div>
           </div>
           <button className="text-white relative">
@@ -34,68 +31,18 @@ export default function Home() {
           </button>
         </div>
         <div className="w-full items-center justify-center flex lg:hidden px-6">
-          <div className="group flex items-center p-3 w-full border border-[#bcbbbb] group-focus-within:border-gray-100 rounded-md">
-            <input
-              placeholder="Pesquise aqui o nome do item que deseja..."
-              className="outline-none bg-transparent text-white text-xs grow placeholder:text-white"
-            />
-            <FaSearch color="#fff" />
-          </div>
+          {/* <SearchProducts /> */}
         </div>
       </div>
       <div className="grow flex flex-col w-full py-2 px-4">
         <h1 className="scroll-m-20 text-base text-center font-light tracking-tight lg:text-2xl my-4">
           CONHEÇA JÁ NOSSOS PRODUTOS
         </h1>
-        {/* <Carousel className="w-full p-2">
-          <CarouselContent>
-            {MainProductCategories.map((info, index) => (
-              <CarouselItem
-                key={index}
-                className="basis-1/5 cursor-pointer hover:scale-[1.02] flex flex-col gap-2 rounded-lg shadow-sm border border-gray-200 h-[350px] overflow-hidden hover:border-gray-500 duration-300 ease-in-out"
-              >
-                <div className="w-full h-[250px] bg-[#989898] relative">
-                  {info.mainImageUrl ? (
-                    <Image
-                      src={info.mainImageUrl}
-                      alt={info.category}
-                      fill={true}
-                    />
-                  ) : null}
-                </div>
-                <div className="w-full flex flex-col gap-2 p-3">
-                  <h1 className="font-bold w-full text-center tracking-wide">
-                    {info.category}
-                  </h1>
-                  <p className="text-sm font-light text-[#989898] text-center">
-                    {info.call}
-                  </p>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-        </Carousel>
-        <Carousel className="w-full max-w-sm">
-          <CarouselContent className="-ml-1">
-            {Array.from({ length: 5 }).map((_, index) => (
-              <CarouselItem
-                key={index}
-                className="pl-1 md:basis-1/2 lg:basis-1/3"
-              >
-                <div className="p-1">
-                  <span className="text-2xl font-semibold">{index + 1}</span>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
-        </Carousel> */}
         <div className="w-full flex items-center justify-around gap-4 px-4 lg:px-12 flex-wrap">
           {MainProductCategories.map((info, index) => (
             <div
               key={index}
-              className="cursor-pointer hover:scale-[1.02] flex flex-col gap-2 w-[300px] rounded-lg shadow-sm border border-gray-200 h-fit lg:h-[350px] overflow-hidden hover:border-gray-500 duration-300 ease-in-out"
+              className="cursor-pointer hover:scale-[1.02] flex flex-col gap-2 w-full lg:w-[300px] rounded-lg shadow-sm border border-gray-200 h-fit lg:h-[350px] overflow-hidden hover:border-gray-500 duration-300 ease-in-out"
             >
               <div className="w-full min-h-[150px] max-h-[150px] h-[150px] lg:min-h-[250px] lg:max-h-[250px] lg:h-[250px] bg-[#989898] relative">
                 {info.mainImageUrl ? (
@@ -124,7 +71,7 @@ export default function Home() {
           {Products.filter((p) => !!p.highlighted).map((info, index) => (
             <div
               key={index}
-              className="cursor-pointer hover:scale-[1.02] flex flex-col gap-2 min-w-[250px] w-[250px] rounded-lg shadow-sm border border-gray-200 h-[350px] overflow-hidden hover:border-gray-500 duration-300 ease-in-out"
+              className="cursor-pointer hover:scale-[1.02] flex flex-col gap-2 min-w-[250px] w-full lg:w-[250px] rounded-lg shadow-sm border border-gray-200 h-[350px] overflow-hidden hover:border-gray-500 duration-300 ease-in-out"
             >
               <div className="w-full h-[200px] bg-[#989898] relative">
                 {!!info.lastUnits ? (
@@ -200,7 +147,7 @@ export default function Home() {
                 {categoryProducts.map((info, index) => (
                   <div
                     key={index}
-                    className="hover:scale-[1.02] flex flex-col gap-2 min-w-[250px] w-[250px] rounded-lg shadow-sm border border-gray-200 h-[350px] overflow-hidden hover:border-gray-500 duration-300 ease-in-out"
+                    className="hover:scale-[1.02] flex flex-col gap-2 min-w-[250px] w-full lg:w-[250px] rounded-lg shadow-sm border border-gray-200 h-[350px] overflow-hidden hover:border-gray-500 duration-300 ease-in-out"
                   >
                     <div className="w-full h-[200px] bg-[#989898] relative">
                       {!!info.lastUnits ? (
